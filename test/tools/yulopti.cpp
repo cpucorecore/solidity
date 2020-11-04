@@ -29,7 +29,7 @@
 #include <libyul/AsmParser.h>
 #include <libyul/AsmPrinter.h>
 #include <libyul/Object.h>
-#include <liblangutil/SourceReferenceFormatter.h>
+#include <liblangutil/SourceReferenceFormatterHuman.h>
 
 #include <libyul/optimiser/Disambiguator.h>
 #include <libyul/optimiser/OptimiserStep.h>
@@ -63,7 +63,7 @@ class YulOpti
 public:
 	void printErrors()
 	{
-		SourceReferenceFormatter formatter(cerr);
+		SourceReferenceFormatterHuman formatter(cerr, true, false);
 
 		for (auto const& error: m_errors)
 			formatter.printErrorInformation(*error);
